@@ -28,6 +28,13 @@ export const MONZA_PROFILE = {
   heroQuote: "在時速 300 公里之下，機械不會說謊。最好的法拉利，只留給懂得駕馭它心跳的人。",
   bioSummary: "十五年穿梭於米蘭理工風洞、蒙札賽道與馬拉內羅原廠。不賣泛泛之輩的代步工具，專為全球層峰車主獵尋、調校並交付具備賽道靈魂的極限躍馬。",
   
+  // 創辦人真人肖像照（50歲義大利血統前業餘賽車手，身穿碳灰色調賽車夾克與專業形象，背景為蒙札賽道風格）
+  portraitImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=85",
+  localPortraitPath: "/founder-monza.jpg",
+  portraitTheme: "約 50 歲、具備義大利血統的前業餘賽車手，身穿碳灰色賽車夾克，眼神剛毅敏銳，背景為蒙札賽道風格",
+  age: "50 歲 (Age 50)",
+  heritage: "義大利波隆那 × 台灣 (Italian-Taiwanese Bloodline)",
+  
   stats: [
     { label: "Ferrari Challenge 頒獎台", value: "12+" },
     { label: "Monza 賽道單圈最速紀錄", value: "1'47.8" },
