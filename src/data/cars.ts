@@ -46,11 +46,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Blu Medio 賽車級麂皮座艙",
     price: "POA (私洽索取配額定價)",
     status: "Off-Market Allocation",
-    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF93NHA*00289192",
     monzaVerdict: "這是當代機械藝術的最後榮光。9,500轉斷油時的 V12 高頻音浪，宛如 1967 年戴通納 24 小時耐力賽三車衝線的歷史重現。全碳纖維一體式底盤回饋極其純粹，是一台能讓收藏家在車庫凝視一整晚的藝術品。",
@@ -84,10 +85,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Nero 賽車輕量化碳纖維桶椅",
     price: "POA (現車在庫)",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF97NPA*00302481",
     monzaVerdict: "固定式碳纖維巨型尾翼帶來的下壓力是前所未有的。在賽道入彎處，你能在時速 220 公里下毫不猶豫地狠踩煞車，電子側滑控制（eSSC）與四輪扭矩分配讓極限寬容度高得驚人。這不是一台跑車，這是一架貼地飛行的戰鬥機。",
@@ -121,10 +124,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Alcantara Nero 搭配專屬 Piloti 刺繡與碳纖維套件",
     price: "NT$ 28,800,000",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF85RHA*00251147",
     monzaVerdict: "只有參與 Ferrari 賽事計劃的車手才有資格購買的夢幻版本。S-Duct 前蓋空氣力學通道讓前軸貼地性達到鬼神級別。雙渦輪幾乎零延遲，在排氣門全開的怒吼中，你能感受到如同 GT 賽車一般的機械緊繃感。",
@@ -158,9 +163,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Cuoio 經典馬鞍棕真皮搭配碳纖維賽車椅",
     price: "NT$ 19,500,000",
     status: "Reserved",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF98NHA*00294821",
     monzaVerdict: "被外媒稱為『小拉法 (piccola LaFerrari)』。因為短軸距和 120 度夾角極低重心，進彎反應是我開過所有現代跑車中最俐落敏捷的一輛。Assetto Fiorano 專屬的 Multimatic 賽道阻尼更是精華所在。",
@@ -194,9 +202,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Alcantara 賽車黑色面料搭配黃色車縫線",
     price: "NT$ 25,500,000",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF72NHA*00204789",
     monzaVerdict: "在渦輪和油電時代，這部車是所有內燃機信徒的聖杯。沒有增壓器的遲滯，九千轉時後腦杓受到的聲浪轟鳴就像神經被直接點燃。市場價格在過去五年穩健上揚，具備不可替代的世代傳承意義。",
@@ -230,9 +241,12 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Bordeaux 深紅奢華真皮雙座",
     price: "POA (跨國私洽專案引渡)",
     status: "Off-Market Allocation",
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85"
     ],
     chassisCode: "ZFF90NHA*00278119",
     monzaVerdict: "當虛擬風擋（Virtual Wind Shield）將氣流引導過駕駛頭頂，你戴上原廠聯名安全帽在賽道呼嘯而過時，那是純粹人車一體的最高境界。全車碳纖維車體只有 1,500 公斤，開著它，你就是行走的文藝復興傳奇。",
