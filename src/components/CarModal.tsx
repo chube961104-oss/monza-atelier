@@ -28,14 +28,12 @@ interface CarModalProps {
 export const CarModal: React.FC<CarModalProps> = ({ car, onClose, onNewBooking }) => {
   if (!car) return null;
 
-  const [activeImage, setActiveImage] = useState(0);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [submittedBooking, setSubmittedBooking] = useState<BookingRecord | null>(null);
   const bookingSectionRef = useRef<HTMLDivElement>(null);
 
-  // Always reset to Angle 01 (Exterior) whenever a new car is opened
+  // Reset booking form when car changes
   useEffect(() => {
-    setActiveImage(0);
     setShowBookingForm(false);
     setSubmittedBooking(null);
   }, [car?.id]);
@@ -49,42 +47,6 @@ export const CarModal: React.FC<CarModalProps> = ({ car, onClose, onNewBooking }
     location: '台北信義私人會客展廳',
     notes: ''
   });
-
-  // Strict 4-Angle Labels with detailed descriptions
-  const angleDetails = [
-    { 
-      number: '01', 
-      title: '外觀全貌', 
-      desc: '經典流線外觀與車頭姿態 (Exterior Silhouette)',
-      badge: 'Exterior 3/4'
-    },
-    { 
-      number: '02', 
-      title: '競技座艙', 
-      desc: '真實座艙內裝、方向盤與跑車座椅 (Racing Cockpit)',
-      badge: 'Cockpit View'
-    },
-    { 
-      number: '03', 
-      title: '碳纖空力', 
-      desc: '碳纖維空力翼片、導流槽與煞車卡鉗 (Carbon Aero & Brake)',
-      badge: 'Aero Dynamics'
-    },
-    { 
-      number: '04', 
-      title: '動力核心', 
-      desc: '中置引擎室與精密機械工程結構 (Powertrain V8/V12)',
-      badge: 'Engine Bay'
-    },
-  ];
-
-  // Strictly use the car's 4 distinct gallery images
-  const galleryImages = [
-    car.gallery?.[0] || car.image,
-    car.gallery?.[1] || car.image,
-    car.gallery?.[2] || car.image,
-    car.gallery?.[3] || car.image,
-  ];
 
   // Helper for performance numbers parsing
   const parseHorsepower = (p: string) => {
@@ -223,97 +185,37 @@ export const CarModal: React.FC<CarModalProps> = ({ car, onClose, onNewBooking }
               </div>
             </div>
 
-            {/* 1. 多角度真實圖庫切換（Multi-Angle Real Gallery Switcher） */}
-            <div className="space-y-3.5">
+            {/* 視角 01：高清真實外貌全貌展示（High-Definition Authentic Exterior Showcase） */}
+            <div className="relative rounded-lg overflow-hidden bg-black h-80 sm:h-[480px] border border-white/10 group shadow-2xl">
+              <img
+                src={car.image}
+                alt={`${car.name} - 視角 01 外貌全貌`}
+                className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-105"
+              />
               
-              {/* Main Image Viewport with Smooth Transition Key */}
-              <div className="relative rounded-lg overflow-hidden bg-black h-80 sm:h-[460px] border border-white/10 group shadow-2xl">
-                <img
-                  key={`${car.id}-angle-${activeImage}`}
-                  src={galleryImages[activeImage]}
-                  alt={`${car.name} - ${angleDetails[activeImage]?.title}`}
-                  className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-105 animate-fadeIn"
-                />
-                
-                {/* Gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/90 via-transparent to-black/30 pointer-events-none" />
+              {/* Gradient vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-carbon-900/90 via-transparent to-black/30 pointer-events-none" />
 
-                {/* Top Badge: Active Angle Details */}
-                <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-xs text-white font-mono shadow-lg">
-                  <Camera className="w-3.5 h-3.5 text-rosso-corsa" />
-                  <span className="font-bold text-rosso-scuderia">視角 {angleDetails[activeImage]?.number}</span>
-                  <span className="text-gray-400">｜</span>
-                  <span>{angleDetails[activeImage]?.desc}</span>
-                </div>
-
-                {/* Bottom Left: Vehicle Badge & Model Authenticity Stamp */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-carbon-900/85 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/10 text-xs font-mono text-gray-300">
-                  <span className="text-giallo-modena font-bold">100% 原裝部位實拍</span>
-                  <span className="text-gray-500">·</span>
-                  <span className="text-gray-400">VIN: {car.chassisCode}</span>
-                </div>
-
-                {/* Bottom Right: Angle Selector Indicator */}
-                <div className="absolute bottom-4 right-4 flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-[11px] font-mono text-gray-300">
-                  <span>{activeImage + 1}</span>
-                  <span className="text-gray-500">/</span>
-                  <span className="text-gray-500">4</span>
-                </div>
+              {/* Top Badge: Angle 01 Exterior Silhouette */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-xs text-white font-mono shadow-lg">
+                <Camera className="w-3.5 h-3.5 text-rosso-corsa" />
+                <span className="font-bold text-rosso-scuderia">視角 01</span>
+                <span className="text-gray-400">｜</span>
+                <span>外貌全貌 (Exterior Silhouette)</span>
               </div>
 
-              {/* 4 Angle Switcher Buttons (明確標註 01, 02, 03, 04) */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {angleDetails.map((detail, idx) => {
-                  const isActive = activeImage === idx;
-                  const thumbImg = galleryImages[idx];
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => setActiveImage(idx)}
-                      type="button"
-                      className={`p-2.5 rounded-lg border text-left transition-all duration-300 flex items-center gap-3 relative overflow-hidden group ${
-                        isActive
-                          ? 'border-rosso-corsa bg-carbon-800 shadow-lg shadow-rosso-corsa/30 scale-[1.02]'
-                          : 'border-white/10 bg-carbon-900/80 opacity-75 hover:opacity-100 hover:border-white/30'
-                      }`}
-                    >
-                      {/* Active indicator stripe */}
-                      {isActive && (
-                        <div className="absolute top-0 left-0 bottom-0 w-1 bg-rosso-corsa" />
-                      )}
-
-                      {/* Thumbnail Preview */}
-                      <div className="w-14 h-11 rounded overflow-hidden shrink-0 bg-black border border-white/10">
-                        <img 
-                          src={thumbImg} 
-                          alt={detail.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
-                        />
-                      </div>
-
-                      {/* Text info */}
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between">
-                          <span className={`text-[11px] font-mono font-bold tracking-wider ${
-                            isActive ? 'text-rosso-scuderia' : 'text-gray-400'
-                          }`}>
-                            視角 {detail.number}
-                          </span>
-                          <span className="text-[10px] font-mono px-1 rounded bg-white/5 text-gray-400 hidden xl:inline">
-                            {detail.badge}
-                          </span>
-                        </div>
-                        <div className={`text-xs font-bold font-display truncate ${
-                          isActive ? 'text-white' : 'text-gray-200'
-                        }`}>
-                          {detail.title}
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
+              {/* Bottom Left: Vehicle Badge & Model Authenticity Stamp */}
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-carbon-900/85 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/10 text-xs font-mono text-gray-300">
+                <span className="text-giallo-modena font-bold">100% 原裝真車外觀</span>
+                <span className="text-gray-500">·</span>
+                <span className="text-gray-400">VIN: {car.chassisCode}</span>
               </div>
 
+              {/* Bottom Right: High Definition Stamp */}
+              <div className="absolute bottom-4 right-4 flex items-center gap-1.5 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/15 text-xs font-mono text-gray-300">
+                <Sparkles className="w-3.5 h-3.5 text-giallo-modena" />
+                <span>高清外觀全景實拍</span>
+              </div>
             </div>
           </div>
 

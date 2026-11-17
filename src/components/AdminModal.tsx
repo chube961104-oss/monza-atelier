@@ -80,7 +80,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
     setEditingCarId(car.id);
     setIsAdding(false);
     setFormData(car);
-    setGalleryText(car.gallery ? car.gallery.join('\n') : car.image);
+    setGalleryText(car.image);
   };
 
   const startAdd = () => {
@@ -114,31 +114,20 @@ export const AdminModal: React.FC<AdminModalProps> = ({
       },
       chassisCode: 'ZFF' + Math.floor(100000 + Math.random() * 900000),
     });
-    setGalleryText([
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85'
-    ].join('\n'));
+    setGalleryText('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85');
   };
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Parse gallery URLs from textarea
-    const parsedGallery = galleryText
-      .split('\n')
-      .map(url => url.trim())
-      .filter(url => url.length > 0);
-
-    const finalImage = parsedGallery[0] || formData.image || '';
+    const finalImage = galleryText.trim() || formData.image || '';
 
     if (isAdding) {
       const newCar = {
         ...formData,
         id: formData.id || 'ferrari-' + Date.now(),
         image: finalImage,
-        gallery: parsedGallery.length > 0 ? parsedGallery : [finalImage],
+        gallery: [finalImage],
         features: formData.features && formData.features.length > 0 ? formData.features : ['原廠 Ferrari Classiche 證書', '全車賽道動態遙測檢驗合格'],
         telemetryData: formData.telemetryData || {
           lateralG: '1.45 G',
@@ -153,7 +142,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
       onUpdateCar({
         ...formData,
         image: finalImage,
-        gallery: parsedGallery.length > 0 ? parsedGallery : [finalImage]
+        gallery: [finalImage]
       } as CarModel);
       setEditingCarId(null);
     }
@@ -352,14 +341,14 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                     </div>
                   </div>
 
-                  {/* Multi-angle Gallery URLs Editor */}
+                  {/* Exterior Image URL Editor */}
                   <div>
                     <label className="block text-xs font-mono text-gray-400 mb-1">
-                      多角度真實圖庫 (4 視角 URL，每行一個：01 外觀全貌、02 競技座艙、03 碳纖空力、04 動力核心)
+                      外貌全貌圖片網址 (視角 01：高清真實外觀照 URL)
                     </label>
-                    <textarea
-                      rows={3}
-                      placeholder="https://images.unsplash.com/...&#10;https://images.unsplash.com/...&#10;https://images.unsplash.com/..."
+                    <input
+                      type="text"
+                      placeholder="https://images.unsplash.com/..."
                       value={galleryText}
                       onChange={e => setGalleryText(e.target.value)}
                       className="w-full bg-carbon-900 border border-white/15 rounded px-3 py-2 text-xs font-mono text-gray-200 focus:border-rosso-corsa"
@@ -417,7 +406,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                             <div>
                               <div className="font-bold text-white">{car.name}</div>
                               <div className="text-[10px] text-gray-400 font-mono">
-                                {car.year} ｜ 圖庫: {car.gallery?.length || 1} 張
+                                {car.year} ｜ 視角 01 外貌全貌照
                               </div>
                             </div>
                           </div>

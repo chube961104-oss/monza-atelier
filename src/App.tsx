@@ -11,7 +11,7 @@ import { AdminModal } from './components/AdminModal';
 import { CARS_DATA, CarModel } from './data/cars';
 import { BookingRecord, getStoredBookings, saveStoredBookings } from './data/bookings';
 
-const CARS_STORAGE_KEY = 'monza_atelier_cars_inventory_v3';
+const CARS_STORAGE_KEY = 'monza_atelier_cars_inventory_v4';
 
 export function App() {
   const [selectedCar, setSelectedCar] = useState<CarModel | null>(null);
