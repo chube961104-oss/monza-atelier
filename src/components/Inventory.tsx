@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { CARS_DATA, CarModel } from '../data/cars';
+import { CarModel } from '../data/cars';
 import { 
-  Gauge, 
   Zap, 
-  ChevronRight, 
-  ShieldCheck, 
-  SlidersHorizontal,
   Flame,
-  ArrowUpRight
+  ArrowUpRight,
+  Database
 } from 'lucide-react';
 
 interface InventoryProps {
+  cars: CarModel[];
   onSelectCar: (car: CarModel) => void;
+  onOpenAdmin: () => void;
 }
 
-export const Inventory: React.FC<InventoryProps> = ({ onSelectCar }) => {
+export const Inventory: React.FC<InventoryProps> = ({ cars, onSelectCar, onOpenAdmin }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categories = [
@@ -26,8 +25,8 @@ export const Inventory: React.FC<InventoryProps> = ({ onSelectCar }) => {
   ];
 
   const filteredCars = activeCategory === 'all'
-    ? CARS_DATA
-    : CARS_DATA.filter(car => car.category === activeCategory);
+    ? cars
+    : cars.filter(car => car.category === activeCategory);
 
   return (
     <section id="inventory" className="py-24 bg-carbon-800/50 relative border-t border-white/5">
@@ -48,9 +47,16 @@ export const Inventory: React.FC<InventoryProps> = ({ onSelectCar }) => {
             </p>
           </div>
 
-          <div className="mt-6 md:mt-0">
+          <div className="mt-6 md:mt-0 flex items-center gap-3">
+            <button
+              onClick={onOpenAdmin}
+              className="text-xs font-mono text-gray-300 hover:text-white bg-carbon-900 hover:bg-carbon-700 px-3.5 py-2 rounded-full border border-white/10 hover:border-giallo-modena/50 transition-colors flex items-center gap-2"
+            >
+              <Database className="w-3.5 h-3.5 text-giallo-modena" />
+              <span>管理資料庫 (CRUD)</span>
+            </button>
             <span className="text-xs font-mono text-gray-400 bg-carbon-900 px-4 py-2 rounded-full border border-white/10">
-              當前現車與配額：<span className="text-rosso-scuderia font-bold">{filteredCars.length}</span> 部
+              在庫展示：<span className="text-rosso-scuderia font-bold">{filteredCars.length}</span> 部
             </span>
           </div>
         </div>

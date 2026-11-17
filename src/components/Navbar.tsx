@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Menu, X, PhoneCall } from 'lucide-react';
+import { ShieldCheck, Menu, X, PhoneCall, Database } from 'lucide-react';
 
 interface NavbarProps {
   onSelectCar: (carId: string) => void;
+  onOpenAdmin: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -33,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             <a 
               href="#about" 
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative py-1 hover:border-b-2 hover:border-rosso-corsa"
@@ -68,14 +69,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
           {/* Right Action */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-carbon-800 border border-white/5 text-xs text-gray-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-              <span className="text-[11px] font-mono tracking-tight text-gray-300">Monza Paddock Online</span>
-            </div>
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={onOpenAdmin}
+              className="px-3.5 py-2 rounded-sm bg-carbon-800 hover:bg-carbon-700 border border-white/10 hover:border-rosso-corsa/40 text-xs font-mono text-gray-300 hover:text-white transition-all flex items-center gap-2"
+              title="期末專題加分項：車輛資料管理（新增／編輯／刪除）"
+            >
+              <Database className="w-3.5 h-3.5 text-giallo-modena" />
+              <span>車窖資料管理 (CRUD)</span>
+            </button>
+
             <a
               href="#contact"
-              className="px-5 py-2.5 rounded-sm bg-gradient-to-r from-rosso-corsa to-rosso-scuderia hover:from-rosso-scuderia hover:to-rosso-corsa text-white text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-lg shadow-rosso-corsa/30 hover:shadow-rosso-corsa/50 flex items-center gap-2"
+              className="px-4 py-2 rounded-sm bg-gradient-to-r from-rosso-corsa to-rosso-scuderia hover:from-rosso-scuderia hover:to-rosso-corsa text-white text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-lg shadow-rosso-corsa/30 hover:shadow-rosso-corsa/50 flex items-center gap-2"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               <span>預約私密鑑賞</span>
@@ -83,7 +89,14 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={onOpenAdmin}
+              className="p-2 text-giallo-modena hover:text-white"
+              title="車窖資料管理"
+            >
+              <Database className="w-5 h-5" />
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-400 hover:text-white focus:outline-none"
@@ -117,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2 text-base font-medium text-gray-200 hover:text-rosso-corsa"
           >
-            在庫躍馬典藏 (6 部神車)
+            在庫躍馬典藏
           </a>
           <a
             href="#services"
@@ -133,6 +146,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
           >
             創辦人自白
           </a>
+          <button
+            onClick={() => { setMobileMenuOpen(false); onOpenAdmin(); }}
+            className="w-full text-left px-3 py-2 text-base font-medium text-giallo-modena hover:text-white flex items-center gap-2"
+          >
+            <Database className="w-4 h-4" />
+            <span>車窖資料管理 (CRUD 新增/編輯/刪除)</span>
+          </button>
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
