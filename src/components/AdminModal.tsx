@@ -355,7 +355,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({
                   {/* Multi-angle Gallery URLs Editor */}
                   <div>
                     <label className="block text-xs font-mono text-gray-400 mb-1">
-                      多角度細節圖庫網址 (每行一個圖片 URL，將對應：1. 外觀經典視角、2. 座艙、3. 碳纖空力卡鉗、4. 動力心臟)
+                      多角度真實圖庫 (4 視角 URL，每行一個：01 外觀全貌、02 競技座艙、03 碳纖空力、04 動力核心)
                     </label>
                     <textarea
                       rows={3}

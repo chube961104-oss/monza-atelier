@@ -16,7 +16,7 @@ export interface CarModel {
   price: string;
   status: 'In Stock' | 'Reserved' | 'Off-Market Allocation';
   image: string;
-  gallery: string[];
+  gallery: [string, string, string, string]; // [01: 外觀全貌, 02: 競技座艙, 03: 碳纖空力, 04: 動力核心]
   chassisCode: string;
   monzaVerdict: string;
   features: string[];
@@ -46,12 +46,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Blu Medio 賽車級麂皮座艙",
     price: "POA (私洽索取配額定價)",
     status: "Off-Market Allocation",
-    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：Rosso Magma 經典流線外觀與前車頭 3/4 視角，低趴賽道 Barchetta 輪廓
+      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：Daytona SP3 現代競技座艙，碳纖維平底方向盤與跑車一體式座艙
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：標誌性橫柵百葉窗式空力導流槽、碳纖維車側散熱進氣口特寫
+      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：中置 6.5 升 65° 自然進氣 V12 引擎室，紅色皺褶漆進氣歧管與全碳纖維機艙飾板
+      "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF93NHA*00289192",
     monzaVerdict: "這是當代機械藝術的最後榮光。9,500轉斷油時的 V12 高頻音浪，宛如 1967 年戴通納 24 小時耐力賽三車衝線的歷史重現。全碳纖維一體式底盤回饋極其純粹，是一台能讓收藏家在車庫凝視一整晚的藝術品。",
@@ -85,12 +89,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Nero 賽車輕量化碳纖維桶椅",
     price: "POA (現車在庫)",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：Bianco Cervino 白色車漆搭配 XX 賽道專屬寬體車身與競技前下導流
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：輕量化戰鬥座艙，碳纖維競技換檔撥片、全數位儀表 HUD 與 eSSC 旋鈕
+      "https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：自 F50 以來首款原廠固定式大型碳纖維尾翼特寫，時速 250km/h 產生 530kg 下壓力之閉合式 Gurney 翼片
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：4.0L 雙渦輪增壓 V8 引擎結合三電動馬達油電核心，雙冷卻散熱通道與鈦合金排氣結構
+      "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF97NPA*00302481",
     monzaVerdict: "固定式碳纖維巨型尾翼帶來的下壓力是前所未有的。在賽道入彎處，你能在時速 220 公里下毫不猶豫地狠踩煞車，電子側滑控制（eSSC）與四輪扭矩分配讓極限寬容度高得驚人。這不是一台跑車，這是一架貼地飛行的戰鬥機。",
@@ -124,12 +132,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Alcantara Nero 搭配專屬 Piloti 刺繡與碳纖維套件",
     price: "NT$ 28,800,000",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：經典賽車紅與義大利三色國旗條紋，WEC 耐力賽桂冠冠軍專屬塗裝
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：Alcantara 賽車黑色面料搭配義大利國旗透氣打孔賽車桶椅，全碳纖維中央換檔座橋
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：全碳纖維單體輕量化輪圈、黃色 Brembo 碳陶瓷煞車卡鉗與車側碳纖維垂直分流進氣翼
+      "https://images.unsplash.com/photo-1570288685369-f7305163d0e3?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：連續四屆獲得世界年度引擎大獎的 3.9L 雙渦輪增壓 V8 動力心臟，S-Duct 通道散熱導流罩
+      "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF85RHA*00251147",
     monzaVerdict: "只有參與 Ferrari 賽事計劃的車手才有資格購買的夢幻版本。S-Duct 前蓋空氣力學通道讓前軸貼地性達到鬼神級別。雙渦輪幾乎零延遲，在排氣門全開的怒吼中，你能感受到如同 GT 賽車一般的機械緊繃感。",
@@ -163,12 +175,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Cuoio 經典馬鞍棕真皮搭配碳纖維賽車椅",
     price: "NT$ 19,500,000",
     status: "Reserved",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：Rosso Corsa 搭配 Giallo Modena 經典賽道賽車條紋，短軸距 120° 緊湊動感前車頭
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：296 GTB 現代極簡數位座艙，黃色躍馬徽章方向盤、電容式觸控面板與頂級 Cuoio 真皮包覆
+      "https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：Assetto Fiorano 賽車套件碳纖維前下擾流前唇、Lexan 輕量化後擋風玻璃與主動升降擾流尾翼
+      "https://images.unsplash.com/photo-1562911791-c7a97b729ec5?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：革命性 120° 夾角「Hot-V」V6 雙渦輪增壓引擎結構，渦輪增壓器置於 V 型夾角中央之超低重心配置
+      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF98NHA*00294821",
     monzaVerdict: "被外媒稱為『小拉法 (piccola LaFerrari)』。因為短軸距和 120 度夾角極低重心，進彎反應是我開過所有現代跑車中最俐落敏捷的一輛。Assetto Fiorano 專屬的 Multimatic 賽道阻尼更是精華所在。",
@@ -202,12 +218,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Alcantara 賽車黑色面料搭配黃色車縫線",
     price: "NT$ 25,500,000",
     status: "In Stock",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：Bianco Avus 珍珠白車身搭配藍白 NART 北美賽車隊賽道拉線，經典中置後驅完美配重身段
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：純競技導向極致偷輕座艙：無地毯鋁合金壓花地板、黃色 10,000 轉指針儀表、碳纖維賽車桶椅
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：車頭前後主動式空氣力學導流翼片、車底大型雙層擴散器與雙出高置競技排氣管特寫
+      "https://images.unsplash.com/photo-1555353540-64580b51c258?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：內燃機絕響 F136FL 4.5 升自然進氣 V8 引擎，升功率達 135 cv/L 神級成就之紅色進氣歧管
+      "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF72NHA*00204789",
     monzaVerdict: "在渦輪和油電時代，這部車是所有內燃機信徒的聖杯。沒有增壓器的遲滯，九千轉時後腦杓受到的聲浪轟鳴就像神經被直接點燃。市場價格在過去五年穩健上揚，具備不可替代的世代傳承意義。",
@@ -241,12 +261,16 @@ export const CARS_DATA: CarModel[] = [
     interiorColor: "Bordeaux 深紅奢華真皮雙座",
     price: "POA (跨國私洽專案引渡)",
     status: "Off-Market Allocation",
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1600&q=85",
     gallery: [
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1400&q=85",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85"
+      // 視角 01（外觀全貌）：Nero Daytona 黑色塗裝搭配賽車銀線條，全碳纖維一體式無前擋開放雙座 Barchetta 雕塑線條
+      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1600&q=85",
+      // 視角 02（競技座艙）：中央碳纖維橫梁分隔之獨立雙座艙，波爾多深紅真皮復古賽車鞍座與專屬歷史銘牌
+      "https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?auto=format&fit=crop&w=1600&q=85",
+      // 視角 03（碳纖空力）：專利虛擬前擋風（Virtual Wind Shield）導流結構、向上開啟之極簡碳纖微型蝶翼門特寫
+      "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1600&q=85",
+      // 視角 04（動力核心）：整片前翻式碳纖維蚌殼式前蓋（Cofango）下的 6.5 升 810 cv V12 賽道引擎本體與進氣管道
+      "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1600&q=85"
     ],
     chassisCode: "ZFF90NHA*00278119",
     monzaVerdict: "當虛擬風擋（Virtual Wind Shield）將氣流引導過駕駛頭頂，你戴上原廠聯名安全帽在賽道呼嘯而過時，那是純粹人車一體的最高境界。全車碳纖維車體只有 1,500 公斤，開著它，你就是行走的文藝復興傳奇。",
